@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.logo {
+  width: 150px;
+  margin-top: 25px;
+  border: solid black 1px;
+}
+
+.findShowsTitle {
+  margin-top: 80px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.addressBar {
+  font-size: 20px;
+  margin-top: 60px;
+  border: solid black 2px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.geoButton {
+  color: green;
+}
