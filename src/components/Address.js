@@ -1,11 +1,14 @@
 import React from 'react'
 
-export default function Address() {
+export default function Address(props) {
+
     return (
         <div>
-            <form>
+            <form >
                 <input className='addressBar'
                        type='text'
+                       onChange={props.updateUserAddress({userAddress: 'state changed'})}
+                       value={props.userAddress}
                        placeholder='Enter your address'>
                 </input>
                 <button type="submit"><i className="fa fa-search"></i></button>
