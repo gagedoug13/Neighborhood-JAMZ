@@ -7,7 +7,7 @@ export default function Address(props) {
             <form >
                 <input className='addressBar'
                        type='text'
-                       onChange={props.updateUserAddress({userAddress: 'state changed'})}
+                       onChange={props.updateUserAddress}
                        value={props.userAddress}
                        placeholder='Enter your address'>
                 </input>

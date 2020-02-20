@@ -23,7 +23,7 @@ export default class Main extends Component {
             <div>
                 <img className='logo' alt ='logo didnt make it' src={localShow}></img>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                <Address updateUserAddress={this.setState} userAddress={this.state.userAddress}/>
+                <Address updateUserAddress={this.updateUserAddress} userAddress={this.state.userAddress}/>
 
                 {this.state.userAddress
                 ? 
