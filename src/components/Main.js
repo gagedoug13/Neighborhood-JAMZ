@@ -5,29 +5,37 @@ import Date from './Date'
 
 export default class Main extends Component {
 
-    state = {
-        userAddress: null,
-        localEvents: []
+    constructor(props) {
+        super(props)
+        this.state = {
+            latitude: null,
+            longitude: null
+        }
+    }
+    
+    componentDidMount() {
+        console.log('hello')
+        navigator.geolocation.getCurrentPosition(position => this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }))
     }
 
     
+    
+    
 
-    updateUserAddress = (event) => {
-        this.setState({
-            userAddress: event.target.value
-        })
-    } 
 
-    render() { 
+    render() {
+        console.log(this.state)
+    
         return (
             <div>
                 <img className='logo' alt ='logo didnt make it' src={localShow}></img>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                <Address updateUserAddress={this.updateUserAddress} userAddress={this.state.userAddress}/>
+                <Address getLatLong={this.getLatLong} />
 
-                {this.state.userAddress
-                ? 
-               <Date />  : null }
+                <Date /> 
             </div>
         )
     }
