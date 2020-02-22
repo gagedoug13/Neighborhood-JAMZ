@@ -19,6 +19,7 @@ export default class Main extends Component {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }))
+        console.log(this.state)
     }
 
     
@@ -28,7 +29,6 @@ export default class Main extends Component {
 
     render() {
         console.log(this.state)
-    
         return (
             <div>
                 <img className='logo' alt ='logo didnt make it' src={localShow}></img>
