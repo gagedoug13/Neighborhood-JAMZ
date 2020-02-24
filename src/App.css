@@ -57,20 +57,21 @@ table {
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .logo {
-  width: 190px;
+  width: 90%;
   margin-top: 15px;
-  margin-bottom: 10px;
-  border: solid black 1px;
+  /* margin-bottom: 10px; */
 }
 
 .findShowsTitle {
   margin-top: 80px;
   font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .addressBar {
   font-size: 20px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
   border: solid black 2px;
   font-family: 'Roboto', sans-serif;
 }
@@ -80,9 +81,43 @@ table {
 }
 
 .landingPageDiv {
-  width: 99vw;
-  height: 70vh;
-  border: 2px black solid;
-
+  width: 100vw;
+  height: 68vh;
+  /* border: 2px black solid; */
+  margin-top: 60px;
 }
 
+.main {
+  background-size: 140vh;
+  height: 67vh;
+}
+
+.dateDiv {
+  border: 2px black solid;
+  height: 40vh;
+  margin-top: 0px;
+}
+
+.logoDiv {
+  background: black;
+  width: 99%;
+  height: 12vh;
+  border: solid white 1px;
+}
+
+.welcomeInstructions {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+}
+
+.launchButton {
+  margin-top: 25vh;
+  font-size: 8vmin;
+  font-family: 'Roboto', sans-serif;
+}
+
+.addressForm {
+  margin-top: 60px;
+}

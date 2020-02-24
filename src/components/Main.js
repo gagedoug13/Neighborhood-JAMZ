@@ -4,13 +4,11 @@ import Date from './Date'
 
 export default class Main extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
+    
+        state = {
             latitude: null,
             longitude: null
         }
-    }
     
     componentDidMount() {
         console.log('hello')
@@ -29,11 +27,14 @@ export default class Main extends Component {
     render() {
         console.log(this.state)
         return (
-            <div>
+            <div className='main'>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
                 <Address getLatLong={this.getLatLong} />
-
-                <Date /> 
+                {this.state.latitude ? 
+                
+                <Date /> : null
+            }
+                
             </div>
         )
     }
