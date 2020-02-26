@@ -4,23 +4,32 @@ import Date from './Date'
 
 export default class Main extends Component {
 
-    
-        state = {
-            latitude: null,
-            longitude: null
+        constructor(props){
+            super(props)
+                this.state = {
+                    latitude: null,
+                    longitude: null
+            }
         }
     
     componentDidMount() {
-        console.log('hello')
         navigator.geolocation.getCurrentPosition(position => this.setState({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }))
-        console.log(this.state)
     }
 
     
-    
+    getGeoFromAddress(event) {
+        event.preventDefault()
+        const addressParameter = event.target.searchBar.value
+        fetch(`/searchAddress?q=${addressParameter}`)
+        .then(response => response.json())
+        .then(data => this.setState({
+            latitude: data.lat,
+            longitude: data.lng
+        }))
+    }
     
 
 
@@ -29,7 +38,7 @@ export default class Main extends Component {
         return (
             <div className='main'>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                <Address getLatLong={this.getLatLong} />
+                <Address getGeoFromAddress={this.getGeoFromAddress} />
                 {this.state.latitude ? 
                 
                 <Date /> : null

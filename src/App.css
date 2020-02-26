@@ -102,7 +102,7 @@ table {
   background: black;
   width: 99%;
   height: 12vh;
-  border: solid white 1px;
+  /* border: solid white 1px; */
 }
 
 .welcomeInstructions {
