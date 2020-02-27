@@ -6,7 +6,15 @@ export default function Address(props) {
     return (
         <div>
             <form className='addressForm' onSubmit={props.getGeoFromAddress} >
-                <h3>Press 'allow' or enter your address</h3>
+                {props.latitude ? 
+                <a target='_blank'
+                   rel="noopener noreferrer"
+                   href={'http://maps.google.com/?ll=' + props.latitude + ',' + props.longitude}>
+                <h3>View location on Map</h3></a>
+
+                : 
+                
+                null}
                 <input className='addressBar'
                        type='text'
                        name='searchBar'

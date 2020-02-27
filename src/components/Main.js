@@ -10,6 +10,7 @@ export default class Main extends Component {
                     latitude: null,
                     longitude: null
             }
+            this.getGeoFromAddress = this.getGeoFromAddress.bind(this)
         }
     
     componentDidMount() {
@@ -19,31 +20,36 @@ export default class Main extends Component {
         }))
     }
 
-    
     getGeoFromAddress(event) {
         event.preventDefault()
         const addressParameter = event.target.searchBar.value
-        fetch(`/searchAddress?q=${addressParameter}`)
-        .then(response => response.json())
-        .then(data => this.setState({
-            latitude: data.lat,
-            longitude: data.lng
-        }))
+        if (addressParameter.length > 0) {
+            fetch(`/searchAddress?q=${addressParameter}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    this.setState({
+                        latitude: data.lat,
+                        longitude: data.lng
+                    })
+                }
+            })
+        } 
     }
     
 
-
     render() {
-        console.log(this.state)
         return (
             <div className='main'>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                <Address getGeoFromAddress={this.getGeoFromAddress} />
+                <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
                 {this.state.latitude ? 
                 
                 <Date /> : null
-            }
-                
+
+                } 
             </div>
         )
     }
