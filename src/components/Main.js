@@ -8,7 +8,8 @@ export default class Main extends Component {
             super(props)
                 this.state = {
                     latitude: null,
-                    longitude: null
+                    longitude: null,
+                    date: null
             }
             this.getGeoFromAddress = this.getGeoFromAddress.bind(this)
         }
@@ -38,16 +39,31 @@ export default class Main extends Component {
             })
         } 
     }
+
+    clickHandler = (event) => {
+        this.setState({
+            date: event.target.value
+        }) 
+    }
+
+    getMetroId = () => {
+        if (this.state.date && this.state.latitude) {
+            fetch(`/getMetro?location=${this.state.latitude},${this.state.longitude}`)
+            .then(response => response.json())
+            .then(console.log)
+        } else (console.log('mmyellow'))
+    }
     
 
     render() {
+        console.log(this.state.date)
         return (
             <div className='main'>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
                 <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
                 {this.state.latitude ? 
                 
-                <Date /> : null
+                <Date getMetroId={this.getMetroId} clickHandler={this.clickHandler}/> : null
 
                 } 
             </div>
