@@ -8,8 +8,7 @@ export default class Main extends Component {
             super(props)
                 this.state = {
                     latitude: null,
-                    longitude: null,
-                    date: null
+                    longitude: null
             }
             this.getGeoFromAddress = this.getGeoFromAddress.bind(this)
         }
@@ -33,7 +32,9 @@ export default class Main extends Component {
                 } else {
                     this.setState({
                         latitude: data.lat,
-                        longitude: data.lng
+                        longitude: data.lng,
+                        date: null,
+                        metroId: null
                     })
                 }
             })
