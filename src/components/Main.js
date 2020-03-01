@@ -34,7 +34,7 @@ export default class Main extends Component {
                         latitude: data.lat,
                         longitude: data.lng,
                         date: null,
-                        metroId: null
+                        events: null
                     })
                 }
             })
@@ -47,24 +47,25 @@ export default class Main extends Component {
         }) 
     }
 
-    getMetroId = () => {
-        if (this.state.date && this.state.latitude) {
-            fetch(`/getMetro?location=${this.state.latitude},${this.state.longitude}`)
+    getMetroAndEvents = (event) => {
+            event.preventDefault()
+            fetch(`/getMetroAndEvents?location=${this.state.latitude},${this.state.longitude}&date=${this.state.date}`)
             .then(response => response.json())
-            .then(console.log)
-        } else (console.log('mmyellow'))
+            .then(response => this.setState({
+                events: response
+            }))
     }
     
 
     render() {
-        console.log(this.state.date)
+        console.log(this.state.events)
         return (
             <div className='main'>
                 <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
                 <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
                 {this.state.latitude ? 
                 
-                <Date getMetroId={this.getMetroId} clickHandler={this.clickHandler}/> : null
+                <Date getMetroAndEvents={this.getMetroAndEvents} clickHandler={this.clickHandler}/> : null
 
                 } 
             </div>
