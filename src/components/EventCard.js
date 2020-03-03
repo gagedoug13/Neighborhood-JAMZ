@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function EventCard() {
+export default function EventCard(props) {
     return (
-        <div>
-            <h1>Band Name</h1>
-            <h2>Venue Name</h2>
-            <p>0.2 mi</p>
+        <div className='cardDiv'>
+            <h2>{props.event.performance[0].displayName}</h2>
+            <h1>{props.event.venue.displayName}</h1>
+            <p>{props.event.start.time}</p>
         </div>
     )
 }

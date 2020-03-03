@@ -13,10 +13,10 @@ function App() {
           <Logo />
           <Switch>
             <Route path='/' exact component={LandingPage} />
-            <Main path='/main' component={Main}/>
+            <Route path='/main' component={Main}/>
           </Switch>
         </div>
-      </Router>
+    </Router>
   );
 }
 

@@ -1,9 +1,21 @@
 import React from 'react'
+import EventCard from './EventCard'
 
-export default function EventContainer() {
+export default function EventContainer(props) {
+
+
     return (
         <div>
-            <h1>I am the card container.</h1>
+           {
+            props.events ?
+
+                props.events.map(event => {
+                return <div key={event.id}>
+                  <EventCard event={event} /> 
+                </div>
+                })
+            : null
+           }
         </div>
     )
 }

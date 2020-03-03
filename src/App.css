@@ -130,3 +130,9 @@ table {
 .addressForm {
   margin-top: 60px;
 }
+
+.cardDiv {
+  width: 100%;
+  height: 15vh;
+  border: 2px solid black;
+}

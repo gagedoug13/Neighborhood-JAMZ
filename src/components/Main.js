@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Address from './Address'
 import Date from './Date'
+import EventContainer from './EventContainer'
 
 export default class Main extends Component {
 
@@ -8,9 +10,12 @@ export default class Main extends Component {
             super(props)
                 this.state = {
                     latitude: null,
-                    longitude: null
+                    longitude: null,
+                    date: null,
+                    events: null,
             }
             this.getGeoFromAddress = this.getGeoFromAddress.bind(this)
+            // this.getMetroAndEvents = this.getMetroAndEvents.bind(this)
         }
     
     componentDidMount() {
@@ -32,9 +37,7 @@ export default class Main extends Component {
                 } else {
                     this.setState({
                         latitude: data.lat,
-                        longitude: data.lng,
-                        date: null,
-                        events: null
+                        longitude: data.lng
                     })
                 }
             })
@@ -47,8 +50,7 @@ export default class Main extends Component {
         }) 
     }
 
-    getMetroAndEvents = (event) => {
-            event.preventDefault()
+    getMetroAndEvents = () => {
             fetch(`/getMetroAndEvents?location=${this.state.latitude},${this.state.longitude}&date=${this.state.date}`)
             .then(response => response.json())
             .then(response => this.setState({
@@ -60,15 +62,21 @@ export default class Main extends Component {
     render() {
         console.log(this.state.events)
         return (
-            <div className='main'>
-                <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
-                {this.state.latitude ? 
-                
-                <Date getMetroAndEvents={this.getMetroAndEvents} clickHandler={this.clickHandler}/> : null
+            <Router>
+                <div className='main'>
+                    <Switch>
+                        <Route path='/main'>
+                            <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
+                            <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
+                            {this.state.latitude ?
+                            <Date getMetroAndEvents={this.getMetroAndEvents} clickHandler={this.clickHandler}/>
+                            : null}
+                        </Route>
 
-                } 
-            </div>
+                        <Route path='/events' render={(props) => (<EventContainer {...props} events={this.state.events} />)}/>
+                    </Switch>   
+                </div>
+            </Router>
         )
     }
 }
