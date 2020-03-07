@@ -96,9 +96,10 @@ table {
 }
 
 .dateDiv {
-  border: 2px black solid;
+  /* border: 2px black solid; */
+  width: 80%;
   height: 27vh;
-  margin-top: 0px;
+  margin-left: 35px;
 }
 
 .logoDiv {
@@ -139,4 +140,9 @@ table {
 
 .addressButton {
   font-size: 3.5vmin;
+}
+
+.dateInputBar {
+  width: 140px;
+  height: 35px;
 }
