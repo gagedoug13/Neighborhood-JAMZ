@@ -136,3 +136,7 @@ table {
   height: 15vh;
   border: 2px solid black;
 }
+
+.addressButton {
+  font-size: 3.5vmin;
+}

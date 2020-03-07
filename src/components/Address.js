@@ -20,7 +20,7 @@ export default function Address(props) {
                        name='searchBar'
                        placeholder='Enter an address'>
                 </input>
-                <button type="submit"></button>
+                <button className='addressButton' type="submit">Set Location</button>
             </form>
         </div>
     )

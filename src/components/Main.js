@@ -41,7 +41,9 @@ export default class Main extends Component {
                     })
                 }
             })
-        } 
+        } else {
+            alert('Please enter an address.')
+        }
     }
 
     clickHandler = (event) => {
