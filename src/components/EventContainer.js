@@ -5,7 +5,7 @@ export default function EventContainer(props) {
 
 
     return (
-        <div>
+        <div className='eventContainerDiv'>
            {
             props.events ?
 
