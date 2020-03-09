@@ -97,6 +97,7 @@ table {
   width: 80%;
   height: 27vh;
   margin-left: 35px;
+  margin-top: 30px;
 }
 
 .logoDiv {
@@ -143,6 +144,7 @@ table {
 
 .addressButton {
   font-size: 3.5vmin;
+  margin-right: 5px;
 }
 
 .dateInputBar {
@@ -193,6 +195,6 @@ p.card-text {
 
 .welcomeDate {
   animation-name: welcomeLocation;
-  animation-duration: 4.1s;
-  animation-delay: 2s;
+  animation-duration: 4s;
+  animation-delay: 1s;
 }
