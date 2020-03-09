@@ -8,13 +8,15 @@ export default function EventCard(props) {
                     <div className="card">
                         <div className="card-body">
                             <h5 className="card-title">{props.event.performance[0].displayName}</h5>
+                            <p>at</p>
                             <p className="card-text">{props.event.venue.displayName}</p>
-                            <a className="btn btn-primary">View this concert.</a>
+                            <a className="btn btn-primary">Starts at {props.event.start.time}.</a>
+                            <p className="distanceTag">0.3 mi</p>
                         </div>
                     </div>
                 </div>
-        </div> 
-    </div>
+            </div> 
+        </div>
     )
 }
 

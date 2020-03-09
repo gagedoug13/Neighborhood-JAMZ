@@ -48,11 +48,12 @@ table {
 }
 
 .App {
+  height: 100vh;
   text-align: center;
   background: url('https://images.unsplash.com/photo-1488036106564-87ecb155bb15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
-  background-size: 100%;
+  background-size: auto;
   background-repeat: no-repeat;
-  background-position: 0%;
+  background-attachment: fixed;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -91,8 +92,7 @@ table {
 }
 
 .main {
-  background-size: 140vh;
-  height: 67vh;
+  height: auto;
 }
 
 .dateDiv {
@@ -135,7 +135,7 @@ table {
 .cardDiv {
   margin-bottom: 25px;
   width: 100vw;
-  height: 18vh;
+  height: 21vh;
   border: 2px solid black;
 }
 
@@ -154,9 +154,22 @@ table {
 
 
 p.card-text {
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 div.card-body {
-  height: 18vh;
+  height: 21vh;
+}
+
+h5.card-title {
+  font-weight: bold;
+}
+
+p.card-text {
+  font-style: italic;
+}
+
+.distanceTag {
+  text-align: right;
 }
