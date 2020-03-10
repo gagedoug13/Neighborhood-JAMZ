@@ -53,11 +53,16 @@ export default class Main extends Component {
     }
 
     getMetroAndEvents = () => {
-            fetch(`/getMetroAndEvents?location=${this.state.latitude},${this.state.longitude}&date=${this.state.date}`)
-            .then(response => response.json())
-            .then(response => this.setState({
-                events: response
-            }))
+            if (!this.state.date && this.state.latitude) {
+                alert('Please choose a location and a date.')
+            } else {
+                fetch(`/getMetroAndEvents?location=${this.state.latitude},${this.state.longitude}&date=${this.state.date}`)
+                .then(response => response.json())
+                .then(response => this.setState({
+                    events: response
+                }))
+            }
+            
     }
     
 
@@ -74,7 +79,7 @@ export default class Main extends Component {
                             : null}
                         </Route>
 
-                        <Route path='/events' render={(props) => (<EventContainer {...props} events={this.state.events} />)}/>
+                        <Route path='/events' render={(props) => (<EventContainer {...props} date={this.state.date} events={this.state.events} />)}/>
                     </Switch>   
                 </div>
             </Router>

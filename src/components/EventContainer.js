@@ -6,6 +6,8 @@ export default function EventContainer(props) {
 
     return (
         <div className='eventContainerDiv'>
+            {!props.date ?
+            (<img className='catPic' src='https://images-na.ssl-images-amazon.com/images/I/71BoMD5mjNL._AC_SL1500_.jpg'></img>) : null}
            {
             props.events ?
 
