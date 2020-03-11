@@ -11,7 +11,8 @@ export default function EventCard(props) {
                             <p>at</p>
                             <p className="card-text">{props.event.venue.displayName}</p>
                             <a className="btn btn-primary">Starts at {props.event.start.time}.</a>
-                            <p className="distanceTag">0.3 mi</p>
+                            <p className="distanceTag">{props.event.distance == null ? 'unknown' : 
+                            props.event.distance.toString().split('').slice(0,4)} mi</p>
                         </div>
                     </div>
                 </div>

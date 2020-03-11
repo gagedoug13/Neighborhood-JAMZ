@@ -73,20 +73,12 @@ table {
 
 .addressBar {
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 15px;
   /* border: solid black 2px; */
   font-family: 'Roboto', sans-serif;
   background-color: transparent;
   color: white;
-}
-
-.addressBar ::placeholder {
-  color: red;
-}
-
-#geoButton {
-  color: green;
 }
 
 .landingPageDiv {
@@ -154,7 +146,7 @@ table {
 }
 
 .dateInputBar {
-  width: 140px;
+  width: 180px;
   height: 35px;
 }
 
@@ -209,3 +201,17 @@ p.card-text {
   max-width: 100vw;
   height: 90vh;
 }
+
+.locationOption {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.addressMessage {
+  color: white;
+}
+
+.locationIcon {
+  width: 35px;
+}
+

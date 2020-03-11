@@ -6,8 +6,6 @@ export default function EventContainer(props) {
 
     return (
         <div className='eventContainerDiv'>
-            {!props.date ?
-            (<img className='catPic' src='https://images-na.ssl-images-amazon.com/images/I/71BoMD5mjNL._AC_SL1500_.jpg'></img>) : null}
            {
             props.events ?
 
@@ -16,7 +14,7 @@ export default function EventContainer(props) {
                   <EventCard event={event} /> 
                 </div>
                 })
-            : null
+            : (<img className='catPic' alt='no kitty' src='https://www.demilked.com/magazine/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-3.gif'></img>) 
            }
         </div>
     )

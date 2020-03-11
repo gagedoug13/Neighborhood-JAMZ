@@ -9,8 +9,7 @@ export default function Date(props) {
                 <input className='dateInputBar'
                        name='dateInput' 
                        onChange={props.clickHandler} 
-                       type='date'
-                       placeholder='Select a date.'/>
+                       type='date'/>
 
                 <Link to='/events'>
                 

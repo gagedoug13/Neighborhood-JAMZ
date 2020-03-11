@@ -15,10 +15,10 @@ export default class Main extends Component {
                     events: null,
             }
             this.getGeoFromAddress = this.getGeoFromAddress.bind(this)
-            // this.getMetroAndEvents = this.getMetroAndEvents.bind(this)
+            this.getGeoFromGeoButton = this.getGeoFromGeoButton.bind(this)
         }
-    
-    componentDidMount() {
+
+    getGeoFromGeoButton() {
         navigator.geolocation.getCurrentPosition(position => this.setState({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
@@ -26,6 +26,8 @@ export default class Main extends Component {
     }
 
     getGeoFromAddress(event) {
+        let message = document.querySelector('.addressMessage')
+        message.innerHTML = 'Getting results...'
         event.preventDefault()
         const addressParameter = event.target.searchBar.value
         if (addressParameter.length > 0) {
@@ -39,6 +41,7 @@ export default class Main extends Component {
                         latitude: data.lat,
                         longitude: data.lng
                     })
+                    message.innerHTML = ''
                 }
             })
         } else {
@@ -58,11 +61,82 @@ export default class Main extends Component {
             } else {
                 fetch(`/getMetroAndEvents?location=${this.state.latitude},${this.state.longitude}&date=${this.state.date}`)
                 .then(response => response.json())
-                .then(response => this.setState({
-                    events: response
-                }))
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        //console.log(data)
+                        let daysArray = this.breakUpByDay(data)
+                        // this.sortEachDay(daysArray)
+                        this.sortEachDay(daysArray)
+                        console.log(daysArray)
+                        // this.setState({
+                        //     events: daysArray[0].events
+                        // })
+                      }
+                    }
+                )}
+    }
+
+    breakUpByDay = (events) => {
+        let days = []
+        let left = 0
+        let right = 1
+        for (let item of events) {
+            item.distance = this.distance(this.state.latitude, this.state.longitude, item.venue.lat, item.venue.lng, 'N')
+            if (right >= events.length) {
+                let day = {}
+                day['date'] = events[left].start.date
+                day['events'] = events.slice(left, right)
+                days.push(day)
+            } else if (events[left].start.date !== events[right].start.date) {
+                let day = {}
+                day['date'] = events[left].start.date
+                day['events'] = events.slice(left, right)
+                left = right
+                right = right + 1
+                days.push(day)
+            } else {
+                right = right + 1
             }
-            
+        }
+        return days
+    }
+
+    sortEachDay = (daysArray) => {
+        for (let day of daysArray) {
+            day.events = day.events.sort((a, b) => {
+                if (a.distance === null) {
+                    return 1
+                } else if (b.distance === null) {
+                    return -1
+                }
+                return a.distance > b.distance ? 1 : -1
+            })
+        }
+    }
+
+    distance = (lat1, lon1, lat2, lon2, unit) => {
+        if ((lat1 === lat2) && (lon1 === lon2)) {
+            return 0;
+        } else if (lat2 == null) {
+            return null
+        } else {
+            var radlat1 = Math.PI * lat1/180;
+            var radlat2 = Math.PI * lat2/180;
+            var theta = lon1-lon2;
+            var radtheta = Math.PI * theta/180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            if (dist > 1) {
+                dist = 1;
+            }
+            dist = Math.acos(dist);
+            dist = dist * 180/Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit==="K") { dist = dist * 1.609344 }
+            if (unit==="N") { dist = dist * 0.8684 }
+            return dist;
+        }
     }
     
 
@@ -73,7 +147,10 @@ export default class Main extends Component {
                     <Switch>
                         <Route path='/main'>
                             <h3 className='findShowsTitle'>Find Shows Near Me.</h3>
-                            <Address getGeoFromAddress={this.getGeoFromAddress} latitude={this.state.latitude} longitude={this.state.longitude}/>
+                            <Address getGeoFromAddress={this.getGeoFromAddress}
+                                    latitude={this.state.latitude} 
+                                    longitude={this.state.longitude}
+                                    getGeoFromGeoButton={this.getGeoFromGeoButton}/>
                             {this.state.latitude ?
                             <Date getMetroAndEvents={this.getMetroAndEvents} clickHandler={this.clickHandler}/>
                             : null}
