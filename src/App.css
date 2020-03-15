@@ -95,7 +95,7 @@ table {
   width: 80%;
   height: 27vh;
   margin-left: 35px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .logoDiv {
@@ -136,7 +136,7 @@ table {
 .cardDiv {
   margin-bottom: 25px;
   width: 100vw;
-  height: 21vh;
+  height: 23vh;
   border: 2px solid black;
 }
 
@@ -148,10 +148,11 @@ table {
 .dateInputBar {
   width: 180px;
   height: 35px;
+  background-color: transparent;
 }
 
 .eventContainerDiv {
-  background-image: linear-gradient(lightblue, yellow);
+  background-image: url('https://hdwallsource.com/img/2014/5/cool-hd-iphone-wallpapers-17464-18022-hd-wallpapers.jpg');
 }
 
 
@@ -161,10 +162,11 @@ p.card-text {
 }
 
 div.card-body {
-  height: 21vh;
+  height: 23vh;
 }
 
 h5.card-title {
+  font-size: large;
   font-weight: bold;
 }
 
@@ -215,3 +217,12 @@ p.card-text {
   width: 35px;
 }
 
+.dateMessage {
+  color: white;
+  margin-right: 85px;
+}
+
+.cardDate {
+  text-align: left; 
+  margin-right: 15px;
+}

@@ -65,14 +65,12 @@ export default class Main extends Component {
                     if (data.error) {
                         alert(data.error)
                     } else {
-                        //console.log(data)
                         let daysArray = this.breakUpByDay(data)
-                        // this.sortEachDay(daysArray)
                         this.sortEachDay(daysArray)
                         console.log(daysArray)
-                        // this.setState({
-                        //     events: daysArray[0].events
-                        // })
+                        this.setState({
+                            events: daysArray[0].events
+                        })
                       }
                     }
                 )}
@@ -138,6 +136,7 @@ export default class Main extends Component {
             return dist;
         }
     }
+
     
 
     render() {

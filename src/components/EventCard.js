@@ -7,10 +7,11 @@ export default function EventCard(props) {
                 <div className="col-sm-6">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">{props.event.performance[0].displayName}</h5>
+                            <p className='cardDate'>{props.event.start.date}</p>
+                            <h5 className="card-title">{props.event.performance.length ? props.event.performance[0].displayName : 'Unknown Artist'}</h5>
                             <p>at</p>
                             <p className="card-text">{props.event.venue.displayName}</p>
-                            <a className="btn btn-primary">Starts at {props.event.start.time}.</a>
+                            <a className="btn btn-primary" target='_blank' href={props.event.uri}>More info</a>
                             <p className="distanceTag">{props.event.distance == null ? 'unknown' : 
                             props.event.distance.toString().split('').slice(0,4)} mi</p>
                         </div>

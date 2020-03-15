@@ -1,5 +1,6 @@
 import React from 'react'
 import EventCard from './EventCard'
+import NoResultsPage from './NoResultsPage'
 
 export default function EventContainer(props) {
 
@@ -14,7 +15,7 @@ export default function EventContainer(props) {
                   <EventCard event={event} /> 
                 </div>
                 })
-            : (<img className='catPic' alt='no kitty' src='https://www.demilked.com/magazine/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-3.gif'></img>) 
+            : <NoResultsPage />
            }
         </div>
     )
