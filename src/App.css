@@ -134,10 +134,11 @@ table {
 }
 
 .cardDiv {
-  margin-bottom: 25px;
-  width: 100vw;
-  height: 23vh;
+  margin-bottom: 12px;
+  width: 95vw;
+  height: 25vh;
   border: 2px solid black;
+  margin-left: 10px;
 }
 
 .addressButton {
@@ -162,12 +163,13 @@ p.card-text {
 }
 
 div.card-body {
-  height: 23vh;
+  height: 25vh;
 }
 
 h5.card-title {
-  font-size: large;
+  font-size: 19px;
   font-weight: bold;
+  margin-top: 12px;
 }
 
 p.card-text {
@@ -225,4 +227,26 @@ p.card-text {
 .cardDate {
   text-align: left; 
   margin-right: 15px;
+  margin-top: -5px;
+}
+
+.eachDayTag {
+  border: 2px black solid;
+  background: grey;
+  width: 95vw;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+.filterForm {
+  height: 50px;
+}
+
+.filterLabel {
+  margin-top: 10px;
+}
+
+#filter {
+  margin-top: 10px;
 }

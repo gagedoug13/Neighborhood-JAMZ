@@ -67,16 +67,22 @@ export default class Main extends Component {
                     } else {
                         let daysArray = this.breakUpByDay(data)
                         this.sortEachDay(daysArray)
-                        console.log(daysArray)
                         this.setState({
-                            events: daysArray[0].events
+                            events: daysArray.map(x => x.events).flat()
                         })
                       }
                     }
                 )}
     }
 
+
+    // The first function to breaking the events up by day (sorted days) and then sorting the events on that day by closest distance to me.
+    // events is coming as 50 event objects that are sorted by date closest to the one given by the user.
+    // when this function runs, it will return a new array of objects where each object holds all the events for that day
+    // example: [{}, {}, {}, {}] monday, tuesday, wednesday, thurs
+    // these new objects are given a new key 'date': '2020/3/15' and a key 'events': [{}, {}, {}, {}, {}, {}, {}]
     breakUpByDay = (events) => {
+        console.log(events, 'how the events object comes in before sorting')
         let days = []
         let left = 0
         let right = 1
@@ -101,6 +107,7 @@ export default class Main extends Component {
         return days
     }
 
+    // now that we transformed the data so it's easier to deal with, I can sort each day of events by closest distance to me. 
     sortEachDay = (daysArray) => {
         for (let day of daysArray) {
             day.events = day.events.sort((a, b) => {
