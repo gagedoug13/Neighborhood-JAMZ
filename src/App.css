@@ -231,6 +231,7 @@ p.card-text {
 }
 
 .eachDayTag {
+  color: white;
   border: 2px black solid;
   background: grey;
   width: 95vw;

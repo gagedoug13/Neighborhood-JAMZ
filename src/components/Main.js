@@ -67,8 +67,9 @@ export default class Main extends Component {
                     } else {
                         let daysArray = this.breakUpByDay(data)
                         this.sortEachDay(daysArray)
+                        console.log(daysArray)
                         this.setState({
-                            events: daysArray.map(x => x.events).flat()
+                            events: daysArray
                         })
                       }
                     }
@@ -82,7 +83,6 @@ export default class Main extends Component {
     // example: [{}, {}, {}, {}] monday, tuesday, wednesday, thurs
     // these new objects are given a new key 'date': '2020/3/15' and a key 'events': [{}, {}, {}, {}, {}, {}, {}]
     breakUpByDay = (events) => {
-        console.log(events, 'how the events object comes in before sorting')
         let days = []
         let left = 0
         let right = 1
