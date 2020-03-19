@@ -7,16 +7,15 @@ export default class DisplayEvents extends Component {
             this.state = {
                 eventsByMilage: null
         }
-        // this.componentDidMount = this.componentDidMount.bind(this)
+        this.filterEventsByMilage = this.filterEventsByMilage.bind(this)
     }
 
-
-    componentDidMount() {
-        console.log(this.props.totalEvents)
+    // this is trying to set state before it gets the data from the main component. need it to wait until the data is there to set state
+    componentDidMount(){
         this.setState({
             eventsByMilage: this.props.totalEvents
         })
-        this.filterEventsByMilage = this.filterEventsByMilage.bind(this)
+        console.log('did mount running')
     }
 
     filterEventsByMilage = (event) => {
@@ -28,12 +27,10 @@ export default class DisplayEvents extends Component {
             
             let left = 0
             let right = day.events.length - 1
-        //    console.log(day)
 
             while(left < right) {
                 let middle = (left + Math.floor((right - left) / 2))
-            //    console.log(day.events[middle].distance)
-            //    console.log(day.events.length, 'length')
+
                 if(day.events[middle].distance > userInput) {
                     right = middle
                 } else {
@@ -43,14 +40,16 @@ export default class DisplayEvents extends Component {
             }
             filteredEvents.push(day.events.slice(0, left))
         }
-        // console.log(filteredEvents)
-        this.setState({
+        return this.setState({
             eventsByMilage: filteredEvents
         })
+        // console.log(filteredEvents)
+        // console.log(this.state.eventsByMilage)
         
     }
 
     render() {
+        console.log(this.state.eventsByMilage)
         return (
             <div>
                 {this.props.totalEvents ?
@@ -68,9 +67,10 @@ export default class DisplayEvents extends Component {
             
             : <h1 className='gettingEvents'>getting events...</h1>
         }
+              
+                <EventContainer events={this.props.totalEvents} />
+              
                 
-                
-                <EventContainer events={this.props.totalEvents}/>
             </div>
         )
     }
