@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Address from './Address'
 import Date from './Date'
 import EventContainer from './EventContainer'
+import DisplayEvents from './DisplayEvents'
 
 export default class Main extends Component {
 
@@ -67,7 +68,7 @@ export default class Main extends Component {
                     } else {
                         let daysArray = this.breakUpByDay(data)
                         this.sortEachDay(daysArray)
-                        console.log(daysArray)
+                        // console.log(daysArray)
                         this.setState({
                             events: daysArray
                         })
@@ -78,7 +79,7 @@ export default class Main extends Component {
 
 
     // The first function to breaking the events up by day (sorted days) and then sorting the events on that day by closest distance to me.
-    // events is coming as 50 event objects that are sorted by date closest to the one given by the user.
+    // events is coming in as 50 event objects that are sorted by date closest to the one given by the user.
     // when this function runs, it will return a new array of objects where each object holds all the events for that day
     // example: [{}, {}, {}, {}] monday, tuesday, wednesday, thurs
     // these new objects are given a new key 'date': '2020/3/15' and a key 'events': [{}, {}, {}, {}, {}, {}, {}]
@@ -162,7 +163,7 @@ export default class Main extends Component {
                             : null}
                         </Route>
 
-                        <Route path='/events' render={(props) => (<EventContainer {...props} date={this.state.date} events={this.state.events} />)}/>
+                        <Route path='/events' render={(props) => (<DisplayEvents {...props}  totalEvents={this.state.events} />)}/>
                     </Switch>   
                 </div>
             </Router>

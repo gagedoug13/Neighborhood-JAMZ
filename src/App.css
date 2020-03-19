@@ -242,6 +242,8 @@ p.card-text {
 
 .filterForm {
   height: 50px;
+  background-color: lightgrey;
+
 }
 
 .filterLabel {
@@ -250,4 +252,11 @@ p.card-text {
 
 #filter {
   margin-top: 10px;
+}
+
+.gettingEvents {
+  background-color: lightgrey;
+  font-size: 20px;
+  color: green;
+  height: 25px;
 }
