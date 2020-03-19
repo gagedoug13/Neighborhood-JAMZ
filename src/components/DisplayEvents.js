@@ -5,20 +5,48 @@ export default class DisplayEvents extends Component {
     constructor(props){
         super(props)
             this.state = {
-                eventsByMilage: []
+                eventsByMilage: null
         }
+        // this.componentDidMount = this.componentDidMount.bind(this)
     }
 
-    filterEventsByMilage = () => {
-        // preventDefault()
-        let totalEvents = this.props.events
-        console.log(totalEvents)
-        let left = 0
-        let right = totalEvents.events.length
-        
-        // for (let i=0; left < right; i++) {
 
-        // }
+    componentDidMount() {
+        console.log(this.props.totalEvents)
+        this.setState({
+            eventsByMilage: this.props.totalEvents
+        })
+        this.filterEventsByMilage = this.filterEventsByMilage.bind(this)
+    }
+
+    filterEventsByMilage = (event) => {
+        let userInput = event.target.value.slice(0,2)
+        let totalEvents = this.props.totalEvents
+        let filteredEvents = []
+       
+        for(let day of totalEvents) {
+            
+            let left = 0
+            let right = day.events.length - 1
+        //    console.log(day)
+
+            while(left < right) {
+                let middle = (left + Math.floor((right - left) / 2))
+            //    console.log(day.events[middle].distance)
+            //    console.log(day.events.length, 'length')
+                if(day.events[middle].distance > userInput) {
+                    right = middle
+                } else {
+                left = middle + 1
+                }
+
+            }
+            filteredEvents.push(day.events.slice(0, left))
+        }
+        // console.log(filteredEvents)
+        this.setState({
+            eventsByMilage: filteredEvents
+        })
         
     }
 
@@ -40,9 +68,9 @@ export default class DisplayEvents extends Component {
             
             : <h1 className='gettingEvents'>getting events...</h1>
         }
-
-
-                <EventContainer events={this.props.totalEvents}/>
+                
+                
+                <EventContainer events={this.state.eventsByMilage}/>
             </div>
         )
     }

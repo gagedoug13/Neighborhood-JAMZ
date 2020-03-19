@@ -68,7 +68,6 @@ export default class Main extends Component {
                     } else {
                         let daysArray = this.breakUpByDay(data)
                         this.sortEachDay(daysArray)
-                        // console.log(daysArray)
                         this.setState({
                             events: daysArray
                         })
