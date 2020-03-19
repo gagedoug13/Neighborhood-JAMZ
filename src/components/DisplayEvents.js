@@ -70,7 +70,7 @@ export default class DisplayEvents extends Component {
         }
                 
                 
-                <EventContainer events={this.state.eventsByMilage}/>
+                <EventContainer events={this.props.totalEvents}/>
             </div>
         )
     }
