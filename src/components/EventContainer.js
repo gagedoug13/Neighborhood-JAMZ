@@ -7,21 +7,22 @@ export default function EventContainer(props) {
 
     return (
         <div className='eventContainerDiv'>
-           {props.events ?
+        {console.log(props.events, 'from card container.')}
+         
+            {props.events ?
+            props.events.map(event => {
+                return (
+                    event.map(x => {
+                        return (
+                            <div key={x.id}>
+                                <EventCard event={x} /> 
+                            </div>
+                        )
+                    })
+                )
+            }) : null
+        }               
                
-                props.events.map(event => {
-                    return (
-                        event.events.map(x => {
-                            return (
-                                <div key={x.id}>
-                                    <EventCard event={x} /> 
-                                </div>
-                            )
-                        })
-                    )
-                })
-            : <NoResultsPage />
-           }
         </div>
     )
 }
