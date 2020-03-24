@@ -48,7 +48,7 @@ table {
 }
 
 .App {
-  height: 99vh;
+  height: 100vh;
   text-align: center;
   background: url('https://images.unsplash.com/photo-1488036106564-87ecb155bb15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
   background-size: auto;
@@ -131,6 +131,7 @@ table {
 
 .addressForm {
   margin-top: 60px;
+  margin-bottom: 5px;
 }
 
 .cardDiv {
@@ -144,6 +145,7 @@ table {
 .addressButton {
   font-size: 3.5vmin;
   margin-right: 5px;
+  margin-top: 5px;
 }
 
 .dateInputBar {
@@ -153,9 +155,11 @@ table {
 }
 
 .eventContainerDiv {
+  min-height: 85vh;
+  max-height: 100%;
+  background-attachment: scroll;
   background-image: url('https://hdwallsource.com/img/2014/5/cool-hd-iphone-wallpapers-17464-18022-hd-wallpapers.jpg');
 }
-
 
 p.card-text {
   margin-top: 15px;
@@ -201,9 +205,16 @@ p.card-text {
   animation-delay: 1s;
 }
 
-.catPic {
+/* .catPic {
   max-width: 100vw;
   height: 90vh;
+} */
+
+.loadingDiv {
+  height: 90vh;
+  background-image: url('https://media.giphy.com/media/lSzQjkthGS1gc/giphy.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .locationOption {
@@ -256,8 +267,133 @@ p.card-text {
 
 .gettingEvents {
   background-color: lightgrey;
-  
   font-size: 20px;
   color: green;
   height: 25px;
 }
+@media screen and (min-width:320px)
+and (max-width:342px) {
+  div.card-body {
+    height: 33vh;
+  }
+  .cardDiv {
+    height: 33vh;
+    margin-bottom: 13px;
+  }
+}
+
+@media screen and (min-width:343px)
+and (max-width:365px) {
+  div.card-body {
+    height: 29vh;
+  }
+  .cardDiv {
+    height: 29vh;
+    margin-bottom: 13px;
+  }
+  .landingPageDiv {
+    margin-top: 90px;
+  }
+  .dateDiv {
+    height: 18vh;
+  }
+  .findShowsTitle {
+    margin-top: 130px;
+  }
+}
+
+@media screen and (min-width:376px)
+and (max-width:414px) {
+  div.card-body {
+    height: 28vh;
+  }
+  .cardDiv {
+    height: 28vh;
+    margin-bottom: 13px;
+  }
+  p.card-text {
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  .landingPageDiv {
+    margin-top: 110px;
+  }
+  .welcomeInstructions{
+    margin-bottom: 80px;
+  }
+  .launchButton {
+    margin-top: 130px;
+  }
+}
+
+@media screen and (min-width:415px)
+and (max-width:480px) {
+  div.card-body {
+    height: 26vh;
+  }
+  .cardDiv {
+    height: 26vh;
+    margin-bottom: 13px;
+  }
+  p.card-text {
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  .landingPageDiv {
+    margin-top: 110px;
+  }
+  .welcomeInstructions{
+    margin-bottom: 80px;
+  }
+  .launchButton {
+    margin-top: 180px;
+  }
+  .addressBar {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+  .locationOption {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+  .addressButton {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .findShowsTitle {
+    margin-top: 100px;
+  }
+  p.dateMessage {
+    font-size: 20px;
+    margin-left: 13px;
+  }
+  .dateInputbar {
+    font-size: 35px;
+  }
+
+  @media screen and (min-width:481px) {
+    .loadingDiv {
+      /* height: 90vh; */
+      background-image: url('https://thumbs.gfycat.com/BelatedBetterBlesbok-size_restricted.gif');
+    }
+  }
+
+  @media screen and (min-width:481px)
+  and (max-width: 525) {
+    .cardDiv {
+      margin-left: 13px;
+    }
+  }
+
+  @media screen and (min-width: 675px) {
+    .app {
+      background-image: url('https://images.unsplash.com/photo-1453090927415-5f45085b65c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1031&q=80');
+    }
+  }
+}
+
+
+
+
+
+

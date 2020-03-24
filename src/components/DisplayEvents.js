@@ -7,7 +7,6 @@ export default class DisplayEvents extends Component {
         super(props)
             this.state = {
                 eventsByMilage: null,
-                areThereProps: false,
                 originalEvents: null
         }
     }
@@ -15,38 +14,37 @@ export default class DisplayEvents extends Component {
 
 
     componentDidUpdate() {
-        if(this.props.totalEvents !== this.state.originalEvents) {
+        if (this.props.totalEvents !== this.state.originalEvents) {
             this.filterEventsByMilage()
         }
     }
     
-    
+
     filterEventsByMilage = (event) => {
-        if (this.state.areThereProps === true) {
-            this.setState({
-                areThereProps: false
-            })
-        }
+        let totalEvents = this.props.totalEvents
+        let filteredEvents = []
+
+        console.log(this.props.totalEvents, 'the events as they come into the function')
         let userInput = 50
         if (event) {
             userInput = event.target.value.slice(0,2)
         }
-        let totalEvents = this.props.totalEvents
-        let filteredEvents = []
        
-        for(let day of totalEvents) {
+        for (let day of totalEvents) {
             let left = 0
-            let right = day.events.length - 1
-            while(left < right) {
+            let right = day.events.length 
+            while (left < right) {
                 let middle = (left + Math.floor((right - left) / 2))
-                if(day.events[middle].distance > userInput) {
+                if (day.events[middle].distance > userInput) {
                     right = middle
                 } else {
                 left = middle + 1
                 }
             }
+            console.log(day.events, 'in the function')
             filteredEvents.push(day.events.slice(0, left))
         }
+    
         this.setState({
             eventsByMilage: filteredEvents,
             originalEvents: this.props.totalEvents
@@ -54,6 +52,7 @@ export default class DisplayEvents extends Component {
     }
 
     render() {
+        // console.log(this.props.totalEvents)
         return (
             <div>
                 {this.props.totalEvents ?
