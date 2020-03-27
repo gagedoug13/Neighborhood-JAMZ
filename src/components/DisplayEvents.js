@@ -54,7 +54,7 @@ export default class DisplayEvents extends Component {
     render() {
         // console.log(this.props.totalEvents)
         return (
-            <div>
+            <div className='displayEventsDiv'>
                 {this.props.totalEvents ?
                 <div className='filterForm'>
                 <label className='filterLabel' >See concerts within:</label>
@@ -64,7 +64,7 @@ export default class DisplayEvents extends Component {
                 <option placeholder="5 miles">5 miles</option>
                 <option placeholder="10 miles">10 miles</option>
                 <option placeholder="25 miles">25 miles</option>
-                <option placeholder="50 miles">50 miles</option>
+                <option selected placeholder="50 miles">50 miles</option>
                 </select>
             </div>
             

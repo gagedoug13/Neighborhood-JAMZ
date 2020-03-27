@@ -12,15 +12,16 @@ export default function Date(props) {
                        name='dateInput' 
                        onChange={props.clickHandler} 
                        type='date'/>
-
                 <Link to='/events'>
-                
+                {props.lat && props.date ?
                 <button onClick={props.getMetroAndEvents}
                         className='dateButton'
                         type='submit'
                         name='addressButton'
                         >GO</button>
+                        : null}
                 </Link>
+                
             </form>
         </div>
     )

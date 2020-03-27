@@ -144,7 +144,6 @@ export default class Main extends Component {
         }
     }
 
-    
     render() {
         return (
             <Router>
@@ -157,11 +156,14 @@ export default class Main extends Component {
                                     longitude={this.state.longitude}
                                     getGeoFromGeoButton={this.getGeoFromGeoButton}/>
                             {this.state.latitude ?
-                            <Date getMetroAndEvents={this.getMetroAndEvents} clickHandler={this.clickHandler}/>
+                            <Date getMetroAndEvents={this.getMetroAndEvents}
+                                clickHandler={this.clickHandler}
+                                date={this.state.date}
+                                lat={this.state.latitude}
+                                />
                             : null}
                         </Route>
-
-                        <Route path='/events' render={(props) => (<DisplayEvents {...props}  totalEvents={this.state.events} />)}/>
+                            <Route path='/events' render={(props) => (<DisplayEvents {...props}  totalEvents={this.state.events} />)}/>
                     </Switch>   
                 </div>
             </Router>

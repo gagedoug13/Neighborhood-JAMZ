@@ -1,5 +1,5 @@
 import React from 'react'
-import neighborhoodJamz from '../neighborhoodJAMZ.png'
+import neighborhoodJamz from '../neighborhoodjamz2.png'
 
 export default function Logo() {
     return (
