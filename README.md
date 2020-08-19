@@ -1,3 +1,13 @@
+Given a user’s location and a date, Neighborhood JAMZ finds concerts in your area displayed by closest distance.
+
+  •Implemented binary search algorithm to filter sorted data more efficiently.
+
+  •Used Google Places API to match the user’s search query with a confirmed location.
+
+  •Utilized Javascript Geolocation object in the browser to get users location upon request.
+
+  •Displays and live filters concerts with the sort by distance capability.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
