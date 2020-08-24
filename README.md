@@ -7,8 +7,8 @@
   After cloning this repository, you'll need to install all depencencies and be sure that node and react are fully updated on your machine. The next step will show you what exactly needs to be installed to run this application.
   
 ## Prerequisites
-
-###
+### npm install
+installs all depependencies listed in package.json
 
 ## Available Scripts
 
