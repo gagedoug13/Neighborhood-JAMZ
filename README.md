@@ -1,7 +1,6 @@
 ## Neighborhood JAMZ
   Neighborhood JAMZ is a concert finding app that helps you find concerts in your area by plugging in your location and a date that you'd like to see concerts. I got the idea 
-  for this when I was looking for shows in my area and realized other websites only show the big concerts in my city, not the cozy smaller ones in my area. This application was 
-  built using React on the front end and Node to handle the requests safely and properly on the back end. 
+  for this when I was looking for shows in my area and realized that other websites only show the big concerts in my city, not the cozy smaller ones in my area. This application was built using React on the front end and Node to handle the requests safely and properly on the back end. 
 
 ## Getting Started
   After cloning this repository, you'll need to install all depencencies and be sure that node and react are fully updated on your machine. The next step will show you what exactly needs to be installed to run this application.
