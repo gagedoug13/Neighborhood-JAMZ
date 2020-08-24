@@ -1,14 +1,14 @@
-Given a user’s location and a date, Neighborhood JAMZ finds concerts in your area displayed by closest distance.
+## Neighborhood JAMZ
+  Neighborhood JAMZ is a concert finding app that helps you find concerts in your area by plugging in your location and a date that you'd like to see concerts. I got the idea 
+  for this when I was looking for shows in my area and realized other websites only show the big concerts in my city, not the cozy smaller ones in my area. This application was 
+  built using React on the front end and Node to handle the requests safely and properly on the back end. 
 
-  •Implemented binary search algorithm to filter sorted data more efficiently.
+## Getting Started
+  After cloning this repository, you'll need to install all depencencies and be sure that node and react are fully updated on your machine. The next step will show you what exactly needs to be installed to run this application.
+  
+## Prerequisites
 
-  •Used Google Places API to match the user’s search query with a confirmed location.
-
-  •Utilized Javascript Geolocation object in the browser to get users location upon request.
-
-  •Displays and live filters concerts with the sort by distance capability.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###
 
 ## Available Scripts
 
