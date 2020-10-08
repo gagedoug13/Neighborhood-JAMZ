@@ -1,0 +1,49 @@
+
+I built neighborhood jamz as a means for solving my need for finding local concerts. The issue i was 
+having was finding the smaller venues in Denver that were close by. Neighborhood jamz works by taking a 
+location and a date for when and where the user wants to see concerts. It then displays those concerts 
+and sorts them by day with the closest ones being first. You can also sort the shows by milage.
+
+
+Sorting the events
+
+The data initially comes in as events that are sorted by nearest date to the date given in the parameters
+
+The first thing we do is use left and right pointers to break up the events by day =>
+
+[{date: 2020-10-08, events: []}, {date: 2020-10-09, events: []}, {date: 2020-10-10, events: []}]
+
+
+each event is also given a key of distance and a value of how many miles away it is from the user's location (1.4)
+by calling the distance(lat,lng,lat2,lng2,miles) method
+
+Next we use a sort method to sort each day array of events from closest to furthest distance from user
+(null is last)
+
+State gets set with this data 
+
+example - [{date: 2020-08-09, events: []}, {date: 2020-08-10, events: []}, {date: 2020-08-11, events: []}]
+
+
+I am using the Google Places API so that i can convert an address query to a lat/long. The lat/long get 
+stored in React State.
+
+you can also hit the "use my location" button that will ask for permission before setting your location.
+I used the Javascript Navigator object in the browser to obtain the lat/long from the user.
+
+before moving on to selecting a date, you can double check to make sure that the location is correct 
+by clicking the hovering location icon above the address input bar.
+
+Now it's time to select a date
+
+I used the HTML Date input tag to allow the user to look at a calendar and select a date.
+
+Once a location and a date have been chosen, you can hit go to get a list of concerts that correlate to 
+the date and location. This works by saving the date and location in React State, and using those 
+as parameters in my request to the songkick API.
+
+NOTE: when this request is sent, first the lat and long are sent to songkick to get the metroID, then an 
+additional request gets sent to Songkick to get the events.
+
+What we receive is an array of concerts from the songkick API. This array is then sent back to the front 
+end to be sorted for the user.

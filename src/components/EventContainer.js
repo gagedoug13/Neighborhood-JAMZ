@@ -7,7 +7,7 @@ export default function EventContainer(props) {
 
     return (
         <div className='eventContainerDiv'>
-        {console.log(props.events, 'from card container.')}
+        {/* {console.log(props.events, 'from card container.')} */}
          
             {props.events ?
             props.events.map(event => {

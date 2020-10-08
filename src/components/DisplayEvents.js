@@ -24,7 +24,7 @@ export default class DisplayEvents extends Component {
         let totalEvents = this.props.totalEvents
         let filteredEvents = []
 
-        console.log(this.props.totalEvents, 'the events as they come into the function')
+        // console.log(this.props.totalEvents, 'the events as they come into the function')
         let userInput = 50
         if (event) {
             userInput = event.target.value.slice(0,2)
@@ -41,7 +41,7 @@ export default class DisplayEvents extends Component {
                 left = middle + 1
                 }
             }
-            console.log(day.events, 'in the function')
+            // console.log(day.events, 'in the function')
             filteredEvents.push(day.events.slice(0, left))
         }
     

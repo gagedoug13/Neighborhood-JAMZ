@@ -110,6 +110,7 @@ export default class Main extends Component {
     // now that we transformed the data so it's easier to deal with, I can sort each day of events by closest distance to me. 
     sortEachDay = (daysArray) => {
         for (let day of daysArray) {
+            console.log(daysArray)
             day.events = day.events.sort((a, b) => {
                 if (a.distance === null) {
                     return 1
