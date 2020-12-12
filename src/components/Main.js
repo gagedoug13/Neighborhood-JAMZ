@@ -24,6 +24,7 @@ export default class Main extends Component {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         }))
+       
     }
 
     getGeoFromAddress(event) {
@@ -146,6 +147,7 @@ export default class Main extends Component {
     }
 
     render() {
+        console.log(this.state.latitude)
         return (
             <Router>
                 <div className='main'>
