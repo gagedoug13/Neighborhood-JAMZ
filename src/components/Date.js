@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Date(props) {
+export default function Date({ getMetroAndEvents, clickHandler, date, lat }) {
     
     return (
         <div className='dateDiv'>
@@ -10,11 +10,11 @@ export default function Date(props) {
                 <input className='dateInputBar'
                         id='date'
                        name='dateInput' 
-                       onChange={props.clickHandler} 
+                       onChange={clickHandler} 
                        type='date'/>
                 <Link to='/events'>
-                {props.lat && props.date ?
-                <button onClick={props.getMetroAndEvents}
+                {lat && date ?
+                <button onClick={getMetroAndEvents}
                         className='dateButton'
                         type='submit'
                         name='addressButton'
