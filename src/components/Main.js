@@ -147,8 +147,8 @@ export default class Main extends Component {
     }
     // note for testing heroku connection
     render() {
-        console.log(this.state.latitude)
         console.log('test')
+        console.log(this.state.latitude)
         return (
             <Router>
                 <div className='main'>
