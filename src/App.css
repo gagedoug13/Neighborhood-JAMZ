@@ -62,7 +62,6 @@ table {
 
 .logo {
   width: 90%;
-  /* margin-top: 15px; */
 }
 
 .findShowsTitle {
@@ -76,7 +75,6 @@ table {
   font-size: 20px;
   margin-top: 10px;
   margin-bottom: 15px;
-  /* border: solid black 2px; */
   font-family: 'Roboto', sans-serif;
   background-color: transparent;
   color: white;
@@ -91,14 +89,12 @@ table {
 .main {
   height: auto;
   margin-top: 130px;
-  /* margin-bottom: 10vh; */
 }
 
 .dateDiv {
   width: 100%;
   height: auto;
   font-size: 2.5vh;
-  /* margin-left: 25px; */
   margin-top: 50px;
   display: flex;
   justify-content: center;
@@ -141,7 +137,6 @@ table {
   height: 27vh;
   border: 2px solid black;
   margin-left: 2vw;
-
 }
 
 .card {
@@ -201,7 +196,6 @@ table {
   font-weight:400;
   color:white;
   background-color:transparent;
-  /* opacity: 50%; */
   text-align:center;
   position:relative;
 }
@@ -301,7 +295,6 @@ p.card-text {
 .dateMessage {
   color: white;
   text-align: left;
-  /* margin-left: 8vmin; */
 }
 
 .cardDate {
@@ -453,9 +446,6 @@ and (max-width:480px) {
       margin-left: 13px;
     }
   }
-
-
-  
 }
 
 

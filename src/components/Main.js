@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Address from './Address'
 import Date from './Date'
-import EventContainer from './EventContainer'
 import DisplayEvents from './DisplayEvents'
 
 export default class Main extends Component {
@@ -78,7 +77,7 @@ export default class Main extends Component {
     }
 
 
-    // The first function to breaking the events up by day (sorted days) and then sorting the events on that day by closest distance to me.
+    // The first function is breaking the events up by day (sorted days) and then sorting the events on that day by closest distance to me.
     // events is coming in as 50 event objects that are sorted by date closest to the one given by the user.
     // when this function runs, it will return a new array of objects where each object holds all the events for that day
     // example: [{}, {}, {}, {}] monday, tuesday, wednesday, thurs
@@ -145,10 +144,8 @@ export default class Main extends Component {
             return dist;
         }
     }
-    // note for testing heroku connection
+    
     render() {
-        console.log('test')
-        console.log(this.state.latitude)
         return (
             <Router>
                 <div className='main'>
