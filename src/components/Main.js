@@ -145,8 +145,9 @@ export default class Main extends Component {
             return dist;
         }
     }
-
+    // note for testing heroku connection
     render() {
+        console.log('test')
         console.log(this.state.latitude)
         return (
             <Router>
