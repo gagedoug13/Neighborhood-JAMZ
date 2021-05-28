@@ -41,7 +41,6 @@ export default class DisplayEvents extends Component {
                 left = middle + 1
                 }
             }
-            // console.log(day.events, 'in the function')
             filteredEvents.push(day.events.slice(0, left))
         }
     
@@ -52,7 +51,6 @@ export default class DisplayEvents extends Component {
     }
 
     render() {
-        // console.log(this.props.totalEvents)
         return (
             <div className='displayEventsDiv'>
                 {this.props.totalEvents ?
